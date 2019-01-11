@@ -23,7 +23,7 @@ The logic of the non-parametric bootstrap method is very simple. We want to know
 
 In this context, the distribution of values in our sample is sometimes called the empirical distribution, and the sampling distribution created by sampling from it is called the resampling distribution. The endpoints of our 90% confidence interval are approximated by the 5th and 95th quantiles of the resampling distribution.
 
-For this to work, we need the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). The resampling distribution will thus approach the sampling distribution since the sampling procedure used to construct each is identical, and their 5th and 95th quantiles will eventually match.
+For this to work, the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). The resampling distribution will thus approach the sampling distribution since the sampling procedure used to construct each is identical, and so their 5th and 95th quantiles will eventually match.
 
 ### Why do I like bootstrapping?
 
