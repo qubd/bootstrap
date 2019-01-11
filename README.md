@@ -19,7 +19,7 @@ We can define instead the T-score by T = (X̄ - μ) / (s / sqrt(n)) using the va
 
 ### Why does bootstrapping work?
 
-The logic of the bootstrap method is very simple. We want to know the sampling distribution of X̄, so we approximate it by explicitly sampling from the best approximation of the unknown population we have access to, which is our sample.
+The logic of the non-parametric bootstrap method is very simple. We want to know the sampling distribution of X̄, so we approximate it by explicitly sampling from the best approximation of the unknown population we have access to, which is our sample.
 
 In this context, the distribution of values in our sample is sometimes called the empirical distribution, and the sampling distribution created by sampling from it is called the resampling distribution. The endpoints of our 90% confidence interval are approximated by the 5th and 95th quantiles of the resampling distribution.
 
@@ -27,7 +27,7 @@ For this to work, we need the resampling distribution has to accurately approxim
 
 ### Why do I like bootstrapping?
 
-When I teach statistics, I would like my students to understand what they're doing and to think about why and when it does / does not work. Bootstrapping allows this, and is a simple idea that generalizes well. I don't have to sweep discussions of robustness and asymptotic correctness under the rug.
+When I teach statistics, I would like my students to understand what they're doing and to think about why and when it does or does not work. Bootstrapping allows this, and is a simple idea that generalizes well. I don't have to sweep discussions of robustness and asymptotic correctness under the rug.
 
 ### Experimental Results
 
@@ -41,10 +41,12 @@ T-distribution Intervals
 |Exp    |8257 |8583 |8718 |8865 |8915 |
 |Pareto	|6672 |6982 |7280 |7615	|7989 |
 
-Bootstrap intervals
+Bootstrap Intervals
 
 |       |5    |10   |20	  |50   |100  |
 |-------|-----|-----|-----|-----|-----|
 |Norm   |7812 |8422 |8745 |8883 |8924 |
 |Exp    |7301 |8171 |8494 |8775 |8863 |
 |Pareto	|5887 |6685 |7205 |7629	|8022 |
+
+Note that exactly 90% of T-distribution confidence intervals will contain the population mean when sampling from a normal distribution, for any sample size, so the first row gives an idea of how much variation to expect simply because our simulation runs only 10000 times.
