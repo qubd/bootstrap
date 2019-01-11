@@ -1,6 +1,6 @@
 # Why bootstrap?
 
-Let's compare the standard method for making a confidence interval for the mean of an unknown population (using the T-distribution) with the non-parametric bootstrap.
+Let's compare the standard parametric method for making a confidence interval for the mean of an unknown population (using the T-distribution) with the non-parametric bootstrap.
 
 ### Why do parametric intervals work?
 
@@ -10,11 +10,11 @@ There's a problem though. The value of σ is, in practice, unknown, so we need t
 
 Consider the Z-score for our sample, Z = (X̄ - μ) / (σ / sqrt(n)). The distribution of the sample mean X̄ is asymptotically normal by the CLT, so the distribution of Z tends asymptotically to the standard normal distribution, since everything except X̄ in there is a constant. But remember that we don't know σ. 
 
-We can define instead the T-score by T = (X̄ - μ) / (s / sqrt(n)) using the value of s from our sample. The question is how this quantity behaves now that there's a new source of uncertainty, s, in the denominator. 
+We can instead define the T-score by T = (X̄ - μ) / (s / sqrt(n)) using the value of s from our sample. The question is how this quantity is distributed now that there's a new source of uncertainty, s, in the denominator. 
 
-*If we know our sample was drawn from a normal distribution*, then the distribution of T is called [Student's T-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution), and it's not too hard to see it's asymptotically normal after deriving the distribution / density function (which takes some work). 
+*If we know our sample was drawn from a normal distribution*, then the distribution of T is called [Student's T-distribution](https://en.wikipedia.org/wiki/Student%27s_t-distribution), which looks like a normal distribution, but with fatter tails. After deriving the distribution / density function, it's not too hard to see that it's asymptotically normal, i.e., as the sample size (and hence the degree of freedom) grows, the T distribution approaches the standard normal distribution.
 
-*If our sample was not drawn from a normal distribution*, then the distribution of T-scores is usually still well approximated by Student's T-distribution, for all but very small sample sizes. Confidence intervals based on the T distribution are said to be robust to deviations from normality, though I've yet to find a precise statement of what this means. It also turns out that the distribution of T is asymptotically normal as long as the CLT applies, for *much* more complicated reasons. In fact, this was only [proven in 1997](https://projecteuclid.org/download/pdf_1/euclid.aop/1024404523)!
+*If our sample was not drawn from a normal distribution*, then the distribution of T-scores is not Student's T-distribution. However, for many well-behaved population distributions, Student's T-distribution is a fairly good approximation to the distribution of T-scores for all but very small sample sizes. Confidence intervals based on the T distribution are said to be robust to non-normality, though I've yet to find a precise statement of what this means. It also turns out that the distribution of T is still asymptotically normal as long as the CLT applies, for *much* more complicated reasons. In fact, this was only [proven in 1997](https://projecteuclid.org/download/pdf_1/euclid.aop/1024404523)!
 
 
 ### Why does bootstrapping work?
