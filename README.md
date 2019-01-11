@@ -39,7 +39,10 @@ T-distribution Intervals
 |-------|-----|-----|-----|-----|-----|
 |Norm   |9026 |8969 |9000 |8990 |9019 |
 |Exp    |8257 |8583 |8718 |8865 |8915 |
+|Unif   |8888 |8935 |9015 |9003	|8995 |
 |Pareto	|6672 |6982 |7280 |7615	|7989 |
+
+Note that exactly 90% of T-distribution confidence intervals will contain the population mean when sampling from a normal distribution, for any sample size, so the first row gives an idea of how much variation to expect simply because our simulation runs only 10000 times.
 
 Bootstrap Intervals
 
@@ -47,6 +50,8 @@ Bootstrap Intervals
 |-------|-----|-----|-----|-----|-----|
 |Norm   |7812 |8422 |8745 |8883 |8924 |
 |Exp    |7301 |8171 |8494 |8775 |8863 |
+|Unif   |8023 |8511 |8814 |8909 |8958 |
 |Pareto	|5887 |6685 |7205 |7629	|8022 |
 
-Note that exactly 90% of T-distribution confidence intervals will contain the population mean when sampling from a normal distribution, for any sample size, so the first row gives an idea of how much variation to expect simply because our simulation runs only 10000 times.
+
+
