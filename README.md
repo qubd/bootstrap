@@ -27,7 +27,7 @@ For this to work, the resampling distribution has to accurately approximate the 
 
 ### Why do I like bootstrapping?
 
-When I teach statistics, I would like my students to understand what they're doing and to think about why and when it does or does not work. Bootstrapping allows this, and is a simple idea that generalizes well. I don't have to sweep discussions of robustness and asymptotic correctness under the rug.
+When I teach statistics, I'd like my students to understand why they're doing what they're doing, and think about when it does or does not work well themselves. Bootstrapping allows this, and is a simple idea that generalizes easily to other interval estimation problems. I don't have to sweep discussions of robustness and asymptotic correctness under the rug.
 
 ### Experimental Results
 
@@ -42,7 +42,7 @@ T-distribution Intervals
 |Unif   |8888 |8935 |9015 |9003	|8995 |
 |Pareto	|6672 |6982 |7280 |7615	|7989 |
 
-Note that exactly 90% of T-distribution confidence intervals will contain the population mean when sampling from a normal distribution, for any sample size, so the first row gives an idea of how much variation to expect simply because our simulation runs only 10000 times.
+Note that precisely 90% of T-distribution confidence intervals will contain the population mean when sampling from a normal distribution, for any sample size, so the first row gives an idea of how much variation to expect simply because our simulation runs only 10000 times.
 
 Bootstrap Intervals
 
@@ -52,6 +52,10 @@ Bootstrap Intervals
 |Exp    |7301 |8171 |8494 |8775 |8863 |
 |Unif   |8023 |8511 |8814 |8909 |8958 |
 |Pareto	|5887 |6685 |7205 |7629	|8022 |
+
+It seems like the bootstrap intervals are notably less accurate for smaller samples, and of course, when sampling from a normal distribution, since the T-distribution intervals are a priori dead on 90% in that case. With a non-normal distribution and a sample size of 50 or larger though, there's not much between the two. Both methods perform dismally when sampling from the heavy-tailed Pareto distribution, which is not surprising.
+
+In my mind, the results vindicate the parametric method a bit, because despite the dubious assumptions and complicated justification, it performs significantly better with small samples. On the other hand, it's nice to see the bootstrap intervals almost completely catch up by the time our sample size reaches 100. Can you think of a population distribution where the bootstrap method might outperform the parametric one? Let me know!
 
 
 
