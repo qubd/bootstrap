@@ -1,4 +1,4 @@
-# Bootstrap Confidence Intervals for X̄
+# Bootstrap Confidence Intervals for the Mean
 
 Let's compare the standard parametric method for making a confidence interval for the mean of an unknown population (using the T-distribution) with the non-parametric bootstrap.
 
