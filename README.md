@@ -1,4 +1,4 @@
-# Why bootstrap?
+# Bootstrap Confidence Intervals for X̄
 
 Let's compare the standard parametric method for making a confidence interval for the mean of an unknown population (using the T-distribution) with the non-parametric bootstrap.
 
@@ -23,7 +23,7 @@ The logic of the non-parametric bootstrap method is very simple. We want to know
 
 In this context, the distribution of values in our sample is sometimes called the empirical distribution, and the sampling distribution created by sampling from it is called the resampling distribution. The endpoints of our 90% confidence interval are approximated by the 5th and 95th quantiles of the resampling distribution.
 
-For this to work, the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). The resampling distribution will thus approach the sampling distribution since the sampling procedure used to construct each is identical, and so their 5th and 95th quantiles will eventually match.
+For this to work, the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). The resampling distribution will thus approach the sampling distribution since the *sampling procedure used to construct each is identical* (note that the bootstrap method of takes resamples of the *same size* as the original sample). The r code in the four notebooks in this repo generates histograms of sampling and resampling distributions of the mean so you can compare them!
 
 ### Why do I like bootstrapping?
 
@@ -55,7 +55,7 @@ Bootstrap Intervals
 
 It seems like the bootstrap intervals are notably less accurate for smaller samples, and of course, when sampling from a normal distribution, since the T-distribution intervals are a priori dead on 90% in that case. With a non-normal distribution and a sample size of 50 or larger though, there's not much between the two. Both methods perform dismally when sampling from the heavy-tailed Pareto distribution, which is not surprising.
 
-In my mind, the results vindicate the parametric method a bit, because despite the dubious assumptions and complicated justification, it performs significantly better with small samples. On the other hand, it's nice to see the bootstrap intervals almost completely catch up by the time our sample size reaches 100. Can you think of a population distribution where the bootstrap method might outperform the parametric one? Let me know!
+In my mind, the results vindicate the parametric method a bit, because despite the dubious assumptions and complicated justification, it performs significantly better with small samples. On the other hand, it's nice to see the bootstrap intervals almost completely catch up by the time our sample size reaches 100. Can you think of a population distribution where the bootstrap method might outperform the parametric one (and do you know how to write r to sample from it)? Let me know!
 
 
 
