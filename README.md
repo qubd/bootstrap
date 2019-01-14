@@ -16,18 +16,13 @@ We can instead define the T-score by T = (X̄ - μ) / (s / sqrt(n)) using the va
 
 *If our sample was not drawn from a normal distribution*, then the distribution of T-scores is not Student's T-distribution. However, for many well-behaved population distributions, Student's T-distribution is a fairly good approximation to the distribution of T-scores for all but very small sample sizes. Confidence intervals based on the T distribution are said to be robust to non-normality, though I've yet to find a precise statement of what this means. It also turns out that the distribution of T is still asymptotically normal as long as the CLT applies, for *much* more complicated reasons. In fact, this was only [proven in 1997](https://projecteuclid.org/download/pdf_1/euclid.aop/1024404523)!
 
-
 ### Why does bootstrapping work?
 
 The logic of the non-parametric bootstrap method is very simple. We want to know the sampling distribution of X̄, so we approximate it by explicitly sampling from the best approximation of the unknown population we have access to, which is our sample.
 
 In this context, the distribution of values in our sample is sometimes called the empirical distribution, and the sampling distribution created by sampling from it is called the resampling distribution. The endpoints of our 90% confidence interval are approximated by the 5th and 95th quantiles of the resampling distribution.
 
-For this to work, the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). The resampling distribution will thus approach the sampling distribution since the *sampling procedure used to construct each is identical* (note that the bootstrap method of takes resamples of the *same size* as the original sample). The r code in the four notebooks in this repo generates histograms of sampling and resampling distributions of the mean so you can compare them!
-
-### Why do I like bootstrapping?
-
-When I teach statistics, I'd like my students to understand why they're doing what they're doing, and think about when it does or does not work well themselves. Bootstrapping allows this, and is a simple idea that generalizes easily to other interval estimation problems. I don't have to sweep discussions of robustness and asymptotic correctness under the rug.
+For this to work, the resampling distribution has to accurately approximate the sampling distribution. As the sample size gets larger and larger, the empirical distribution (our sample) will approach the unknown population distribution because we're taking a random sample. To prove this requires only the [LLN](http://en.wikipedia.org/wiki/Law_of_large_numbers). We expect the resampling distribution to then approach the sampling distribution since the *sampling procedure used to construct each is identical* (note that the bootstrap method of takes resamples of the *same size* as the original sample). The r code in the four notebooks in this repo generates histograms of sampling and resampling distributions of the mean so you can compare them!
 
 ### Experimental Results
 
